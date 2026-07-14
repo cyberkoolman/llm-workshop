@@ -1,0 +1,16 @@
+### ---------------------------------------------------------------
+### To get a Bearer token, run in terminal:
+###   az account get-access-token --resource https://search.azure.com --query accessToken -o tsv
+### Then paste the token value into the @token variable below.
+### ---------------------------------------------------------------
+
+@searchService = {{$dotenv SearchService}}
+@searchIndex = {{$dotenv SearchIndex}}
+@token = <paste-your-token-here>
+
+###
+GET https://{{searchService}}.search.windows.net/indexes/{{searchIndex}}/docs?api-version=2021-04-30-Preview&select=sourcefile&search=*
+Authorization: Bearer {{token}}
+
+
+

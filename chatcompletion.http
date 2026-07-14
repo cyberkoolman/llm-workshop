@@ -1,0 +1,71 @@
+### ---------------------------------------------------------------
+### To get a Bearer token, run in terminal:
+###   az account get-access-token --resource https://cognitiveservices.azure.com --query accessToken -o tsv
+### Then paste the token value into the @token variable below.
+### ---------------------------------------------------------------
+
+@endpoint = {{$dotenv OpenAiEndPoint}}
+@apiVersion = {{$dotenv OpenAiVersion}}
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImFGa21LVkZjLTRXVjZzWENCdk5aa1hJNTA1WSIsImtpZCI6ImFGa21LVkZjLTRXVjZzWENCdk5aa1hJNTA1WSJ9.eyJhdWQiOiJodHRwczovL2NvZ25pdGl2ZXNlcnZpY2VzLmF6dXJlLmNvbSIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzJiYWNjODljLWU3MTQtNDY0OC1hODRjLTM5OTQ3OGVjNWExMC8iLCJpYXQiOjE3ODQwNjI5MDUsIm5iZiI6MTc4NDA2MjkwNSwiZXhwIjoxNzg0MDY3NjkxLCJhY3IiOiIxIiwiYWlvIjoiQVlRQWUvOGNBQUFBSlpLelVhSGVzN0hVbWQ1cFFHOWo4bWVGaU9JQTRjQnNqUGltYmR5Y25Bb1hmYzd6MXNFMmUrbzJKUndObDBMMHJaZUhzT1lBdW11RTVkSnNpVGFIS1h5aEtvdDkyZWQwaTQ1VWkweGlRK1RCNVd0dld3QkdHUzdxV2xzclRKRE9mSEVDUmxHSWpjYjd3bmpHS1BMdXhwdTRvQW05MVRHVGRmRWNBR0tQZkhBPSIsImFtciI6WyJwd2QiLCJtZmEiXSwiYXBwaWQiOiIwNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDYiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IkFkbWluaXN0cmF0b3IiLCJnaXZlbl9uYW1lIjoiU3lzdGVtIiwiZ3JvdXBzIjpbIjgzNTkwZWYxLTc2MTktNDQ1Ny05MDVlLThiNTRjMTE1NTdjYyJdLCJpZHR5cCI6InVzZXIiLCJpcGFkZHIiOiIxNzIuMjAwLjcwLjg5IiwibmFtZSI6IlN5c3RlbSBBZG1pbmlzdHJhdG9yIiwib2lkIjoiMTIzNDg3NTEtY2NkNy00NTA3LWIzZTAtNTRmNmY5ODAxN2Y0IiwicHVpZCI6IjEwMDMyMDA0NzJFM0NBQTkiLCJwd2RfdXJsIjoiaHR0cHM6Ly9nby5taWNyb3NvZnQuY29tL2Z3bGluay8_bGlua2lkPTIyMjQxOTgiLCJyaCI6IjEuQVdNQm5NaXNLeFRuU0Vhb1REbVVlT3hhRUpBaU1YM0lLRHhIb08yT1UzU2JiVzBBQUtKakFRLiIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInNpZCI6IjAwNGYzOTVhLTdlMzMtOGJmOS1iZWE4LTMxOTE0MDgzYzhkNyIsInN1YiI6IkhEZXo0Vlk5Q0h4dzh2aENKMDNaRVFvcUQ0dHpBb1B3LVd6RnpUeTRDd2ciLCJ0aWQiOiIyYmFjYzg5Yy1lNzE0LTQ2NDgtYTg0Yy0zOTk0NzhlYzVhMTAiLCJ1bmlxdWVfbmFtZSI6ImFkbWluQE1uZ0Vudk1DQVA2NDc2MTgub25taWNyb3NvZnQuY29tIiwidXBuIjoiYWRtaW5ATW5nRW52TUNBUDY0NzYxOC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJEOHJYWmtFajUwLTA1b3FLeVFwOEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyI2MmU5MDM5NC02OWY1LTQyMzctOTE5MC0wMTIxNzcxNDVlMTAiLCJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2FjdF9mY3QiOiIzIDUiLCJ4bXNfZnRkIjoiWEpvQ2dnMVNJa0RkbGlSVW43VV9nUDNSTjhkdjBwaUkybld2TDl5eTZuc0JkWE51YjNKMGFDMWtjMjF6IiwieG1zX2lkcmVsIjoiMSAyMiIsInhtc19zdWJfZmN0IjoiMTAgMyJ9.RBvG0U37E5HJXv997E9pl6aGoQKk2kqHr9sE3dAtQxitGmJ8JdYNRfIGRnOseK3wikqyR2YDqyGL5mibahlc2fSVBqs1Q7Ly1wj5kCjPoffB3P8FSTHCsOtfc0XSHnUwoIetmPKXCzDGqHzaspo0FOvxFyIp-9l45SRGlpbZvrBo_S0UitWmyHfQzee3gV5r4aDSI9X8Ffw7cq76VoF2da6DdQEB0NamUSUW8364ZfwZx6XDjbXufaOhG8MSy-bK4H06rnY0ReRrqU6kLeDo4EJdSD4EKhpSsaB3-td2O7ICld7sE_BHjS5c2r_XKnlI1O6uAVf9ZsHBLhONlDNjhA
+
+### 1. Basic chat completion — fire once to confirm it works
+POST {{endpoint}}openai/deployments/gpt-4o/chat/completions?api-version={{apiVersion}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "max_tokens": 1000,
+  "messages": [
+    {
+      "role": "user",
+      "content": "What year is your knowledge cutoff?"
+    }
+  ]
+}
+
+### 2. Small max_tokens — observe token usage in response headers (x-ratelimit-remaining-tokens)
+POST {{endpoint}}openai/deployments/gpt-4o/chat/completions?api-version={{apiVersion}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "max_tokens": 250,
+  "messages": [
+    {
+      "role": "user",
+      "content": "What year is your knowledge cutoff?"
+    }
+  ]
+}
+
+### 3. Large max_tokens — rapid-fire this to trigger 429 rate limiting
+POST {{endpoint}}openai/deployments/gpt-4o/chat/completions?api-version={{apiVersion}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "max_tokens": 4000,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Generate a very long poem about AI, machine learning, and the future of humanity."
+    }
+  ]
+}
+
+### 4. Multiple completions (n=2) — doubles token consumption, easier to hit limits
+POST {{endpoint}}openai/deployments/gpt-4o/chat/completions?api-version={{apiVersion}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "max_tokens": 2000,
+  "n": 2,
+  "temperature": 1.5,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ]
+}
